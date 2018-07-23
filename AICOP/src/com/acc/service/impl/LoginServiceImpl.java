@@ -1,5 +1,7 @@
 package com.acc.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +17,9 @@ public class LoginServiceImpl implements LoginService{
 	@Resource(name="loginService")
 	private LoginService loginService;
 	
-	/*@Autowired
+	@Autowired
 	private LoginDao loginDao;
-	*/
+	
 	
 	public void setLoginService(LoginService loginService) {
 		this.loginService = loginService;
@@ -28,11 +30,16 @@ public class LoginServiceImpl implements LoginService{
 	@Override
 	public boolean authenticateUser(UserBean userBean) {
 		System.out.println("In service");
-		//loginDao.getUserForUserId(userBean);
-		if(userBean.getUserId().equalsIgnoreCase(userBean.getPassword())) {
-			return true;
+		List<UserBean> resultList = loginDao.getUserForUserId(userBean);
+		System.out.println("Size:::"+resultList.size());
+		for(UserBean userBeans : resultList) {
+			System.out.println(userBeans.getUserId());
+			System.out.println(userBeans.getPassword());
 		}
-		return false;
+		/*if(userBean.getUserId().equalsIgnoreCase(userBean.getPassword())) {
+			return true;
+		}*/
+		return true;
 	}
 
 }
