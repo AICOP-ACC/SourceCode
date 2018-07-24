@@ -12,43 +12,41 @@
 <title>AICOP</title>
 </head>
 <body>
-<h1>Login Page</h1>
+	<div class="row justify-content-center pt-5">	
+		<img alt="loginLogo" src="resources/images/aicop_login_logo.png">
+	 </div>
+
 <div class="container">    
 <form id="loginForm" name="loginForm" action="authenticate.do" modelAttribute="loginForm" method="POST">
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div id="loginbox" style="margin-top:50px;" class="row justify-content-center mainbox">                    
             <div class="panel panel-info" >
                     <div class="panel-heading">
-                    	<div>${errorMsg}</div>
-                        <div class="panel-title">Sign In</div>
-                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+                    	<div class="text-danger">${errorMsg}</div>
+                        <!-- <div class="panel-title">Sign In</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div> -->
                     </div>     
 
                     <div style="padding-top:30px" class="panel-body" >
-
-                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                            
-                        <form id="loginform" class="form-horizontal" role="form">
-                                    
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="userId" type="text" class="form-control" name="userId" value="" placeholder="username or email">                                        
+                                        <input id="userId" type="text" class="form-control" name="userId" value="" placeholder="Username">                                        
                                     </div>
                                 
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <input id="password" type="password" class="form-control" name="password" placeholder="password">
+                                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
                                     </div>
                                     
 
                                 
-                            <div class="input-group">
+                           <!--  <div class="input-group">
                                       <div class="checkbox">
                                         <label>
                                           <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
                                         </label>
                                       </div>
                                     </div>
-
+ -->
 
                                 <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
@@ -71,7 +69,7 @@
                                         </div>
                                     </div>
                                 </div>    
-                            </form>     
+                                
 
 
 
@@ -79,7 +77,7 @@
                     </div>  
         </div>
         </form>
-        <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div id="signupbox" style="display:none; margin-top:50px" class="mainbox">
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <div class="panel-title">Sign Up</div>

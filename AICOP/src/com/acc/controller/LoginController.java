@@ -36,7 +36,7 @@ public ModelAndView registerUser(@ModelAttribute("loginForm")LoginForm loginForm
 	
 	if(flag) {
 	mav.addObject("result", "Authenticated Successfully");
-	mav.setViewName("landing");
+	mav.setViewName("index");
 	}
 	else {
 		mav.addObject("errorMsg","Incorrect UserId/Password");
