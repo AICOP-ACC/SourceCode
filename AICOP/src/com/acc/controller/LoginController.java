@@ -3,6 +3,7 @@ package com.acc.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -17,7 +18,7 @@ import com.acc.form.LoginForm;
 
 @Controller
 public class LoginController {
-
+	final static Logger logger = Logger.getLogger(LoginController.class);
 	private LoginDelegate loginDelegate;
 		
 public void setLoginDelegate(LoginDelegate loginDelegate) {
@@ -26,7 +27,7 @@ public void setLoginDelegate(LoginDelegate loginDelegate) {
 
 @RequestMapping( value = "/authenticate.do",method=RequestMethod.POST)
 public ModelAndView registerUser(@ModelAttribute("loginForm")LoginForm loginForm ,HttpServletRequest request,HttpServletResponse response){
-	System.out.println("Into controller-->"+loginForm.getUserId());
+	logger.debug("Into controller-->"+loginForm.getUserId());
 	ModelAndView mav = new ModelAndView();
 	UserBean userBean = new UserBean();
 	userBean.setUserId(loginForm.getUserId());

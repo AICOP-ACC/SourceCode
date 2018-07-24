@@ -33,13 +33,16 @@ public class LoginServiceImpl implements LoginService{
 		List<UserBean> resultList = loginDao.getUserForUserId(userBean);
 		System.out.println("Size:::"+resultList.size());
 		for(UserBean userBeans : resultList) {
+			if(userBeans.getPassword().equals(userBean.getPassword())){
+				return true;
+			}
 			System.out.println(userBeans.getUserId());
 			System.out.println(userBeans.getPassword());
 		}
 		/*if(userBean.getUserId().equalsIgnoreCase(userBean.getPassword())) {
 			return true;
 		}*/
-		return true;
+		return false;
 	}
 
 }
