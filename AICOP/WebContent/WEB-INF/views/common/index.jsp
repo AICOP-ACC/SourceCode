@@ -1,21 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
   <head>
-<!--   <link href="jquerysctipttop.css" rel="stylesheet" type="text/css">
- -->        <link rel="stylesheet" href="css1/style.css" />
-<script src="raphael-min.js"></script>
-        
-        <script src="js1/flowchart.js"></script>
-        <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael-min.js"></script>-->
-  
-<script src="popper.min.js"></script>
-  <script src="bootstrap.min.js"></script>
-
-        <script src="flowchart.js"></script>
-        <!-- <script src="../release/flowchart.min.js"></script> -->
+  <link href="resources/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="resources/js/raphael-min.js"></script> 
+<script src="resources/js/popper.min.js"></script>
+<script src="resources/js/jquery.min.js"></script>
+        <script src="resources/js/flowchart.js"></script>
          <script>
 		 function changeTheme(theme)
 		 {
@@ -38,13 +28,10 @@ document.getElementById("navtitle").style.backgroundColor='#2A3F54';
 		 document.getElementById("navbar").style.backgroundColor='#2A3F54';
 		 document.getElementById("left-col").style.backgroundColor='#2A3F54';
 }		
-		
-		 
-		 
 		 }
 		 function generateFlowChart()
 		 {
-		 alert("genreate flow chart");
+		 
 		 var flowone=document.getElementById("flow").value;
 		 var flowtwo=document.getElementById("flow1").value;
 		 var flowthree=document.getElementById("flow2").value;
@@ -54,14 +41,14 @@ document.getElementById("navtitle").style.backgroundColor='#2A3F54';
 		 var code=flowone+"=>operation: "+flowone+"\n"+flowtwo+"=>operation: "+flowtwo+"\n"+flowthree+"=>operation: "+flowthree+"\n"+flowfour+"=>operation: "+flowfour+"\n"+flowfive+"=>operation: "+flowfive;
 var code1=flowone+"(right)->"+flowtwo+"(right)->"+flowthree+"(right)->"+flowfour+"(right)->"+flowfive;
 var codefinal=code+"\n"+code1;
-alert(codefinal);
+/* alert(codefinal); */
 
 
 
                  var   chart = flowchart.parse(codefinal);
 				 var div=document.getElementById("canvas");
 				 div.innerHTML="";
-				 alert(chart);
+				/*  alert(chart); */
                     chart.drawSVG('canvas', {
                       // 'x': 30,
                       // 'y': 50,
@@ -102,7 +89,7 @@ alert(codefinal);
                       }
                     });
                     $('[id^=sub1]').click(function(){
-                      alert('info here');
+                     /*  alert('info here'); */
                     });
 
 		 
@@ -157,7 +144,7 @@ alert(codefinal);
                       }
                     });
                     $('[id^=sub1]').click(function(){
-                      alert('info here');
+                     /*  alert('info here'); */
                     });
                 
             };
@@ -166,14 +153,12 @@ alert(codefinal);
   
   function replaceexclamation()
   {
-  document.getElementById("x_content1").innerHTML='<marquee behaviour=scroll direction=up style=height:320px; >This is a replaced text 2 </marquee>';
+  document.getElementById("x_content1").innerHTML='<marquee class ="text-danger" behaviour=scroll direction=up style=height:320px; >1801040252 - OPOM - Unable to place porting orders - Stuck in Order Summary Page - Action Required </marquee>';
 
   }
   
   function replacesignal()
   {
-  //location.reload();
-  //alert("after reloading");
   document.getElementById("x_content1").innerHTML='<canvas id="mybarChart" width="633" height="316" style="width: 633px; height: 316px;margin-top:10%;"></canvas>';
 var f=document.getElementById("mybarChart");
 new Chart(f,{type:"bar",data:{labels:["BCC","Helix","Helix Mobile","Helix Mobile","OPOM","POPI"],datasets:[{label:"# of Incidents",backgroundColor:"#26B99A",data:[51,30,40,28,92,50]}]},options:{scales:{yAxes:[{ticks:{beginAtZero:!0}}]}}})
@@ -188,7 +173,6 @@ new Chart(f,{type:"bar",data:{labels:["BCC","Helix","Helix Mobile","Helix Mobile
 });
 tagInput.appendTo($('#wrapper'));
 tagInput.tagsinput({
-    // config for tags input
 });
   
   
@@ -208,29 +192,16 @@ tagInput.tagsinput({
     <title>AICOP </title>
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/bootstrap.min_gen.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
+    <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- bootstrap-progressbar -->
-    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="resources/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    
 
     <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
-	<link href="dist/css/tokenfield-typeahead.css" type="text/css" rel="stylesheet">
-    <!-- Tokenfield CSS -->
-    <link href="dist/css/bootstrap-tokenfield.css" type="text/css" rel="stylesheet">
-    <!-- Docs CSS -->
-    <link href="docs-assets/css/pygments-manni.css" type="text/css" rel="stylesheet">
-    <link href="docs-assets/css/docs.css" type="text/css" rel="stylesheet">
+    <link href="resources/css/custom.min.css" rel="stylesheet">
+
   </head>
 
   <body class="nav-md">
@@ -250,21 +221,27 @@ tagInput.tagsinput({
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-    <center> <img class="img-responsive" src="http://placehold.it/1200x600/fffccc/000&text=iPhoneX+ Event is going on." alt="..."></center>
+    <center> <img class="img-responsive" src="resources/images/banner1.jpg" alt="..."></center>
       <div class="carousel-caption">
-       
+        <a href="#">CLick Here for more details</a>
       </div>
     </div>
     <div class="item">
-      <img class="img-responsive" src="http://placehold.it/1200x600/fffccc/000&text=SamsungS10 Event starts on Aug-15" alt="...">
+      <img class="img-responsive" src="resources/images/banner2.jpg" alt="...">
       <div class="carousel-caption">
-        
+        <a href="#">CLick Here for more details</a>
       </div>
     </div>
      <div class="item">
-      <img class="img-responsive" src="http://placehold.it/1200x600/fcf00c/000&text=Roadshow planned on Sep-15" alt="...">
+      <img class="img-responsive" src="resources/images/banner3.jpg" alt="...">
       <div class="carousel-caption">
-      
+        <a href="#">CLick Here for more details</a>
+      </div>
+    </div>
+    <div class="item">
+      <img class="img-responsive" src="resources/images/banner4.jpg" alt="...">
+      <div class="carousel-caption">
+        <a href="#">CLick Here for more details</a>
       </div>
     </div>
   </div>
@@ -286,8 +263,7 @@ tagInput.tagsinput({
         <div class="col-md-3 left_col" id="left-col">
           <div class="left_col scroll-view" id="navbar">
             <div class="navbar nav_title" style="border: 0;" id="navtitle">
-            
-             <img src="AICOP_LOGO.png" style="width: 200px;" ></img> 
+              <img src="resources/images/aicop_logo.png" style="width:200px;"></img>
             </div>
 
             <div class="clearfix"></div>
@@ -295,7 +271,7 @@ tagInput.tagsinput({
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="download.png" alt="..." class="img-circle profile_img">
+                <img src="resources/images/profile_pic.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -376,21 +352,7 @@ tagInput.tagsinput({
             </div>
             <!-- /sidebar menu -->
 
-          <!--  <!-- /menu footer buttons
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>-->
+          
             <!-- /menu footer buttons -->
           </div>
         </div>
@@ -406,7 +368,7 @@ tagInput.tagsinput({
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="download.png" alt="">John Doe
+                    <img src="resources/images/profile_pic.png" alt="">John Doe
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -522,15 +484,8 @@ tagInput.tagsinput({
                 </div>
                 <div class="x_content">
 				
-        <link rel="stylesheet" href="css1/style.css" />
+    
 		 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>-->
-        <script src="jquery.min.js"></script>
-        <script src="js1/flowchart.js"></script>
-        <script src="js1/jquery.flowchart.js"></script>
-      
-       <!-- <iframe src="flowchart/testSample.html" width="100%" height="200px"></iframe>      -->
-
-           
              <div><textarea id="code" style="width: 100%;display:none;" rows="11">
 st=>start: Start|past:>http://www.google.com
 			 orderCapture=>operation: Order Capture:>http://www.google.com
@@ -790,7 +745,7 @@ orderCapture@>orderValidation({"stroke":"green"})@>orderSubmission({"stroke":"gr
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            ACCENTURE Solutions
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -798,49 +753,27 @@ orderCapture@>orderValidation({"stroke":"green"})@>orderSubmission({"stroke":"gr
       </div>
     </div>
    <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="resources/js/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+  
     <!-- Chart.js -->
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
+    <script src="resources/js/Chart.min.js"></script>
+   
+  
     <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="../vendors/Flot/jquery.flot.js"></script>
-    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
+    <script src="resources/js/bootstrap-progressbar.min.js"></script>
+    
     <!-- DateJS -->
-    <script src="../vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="resources/js/date.js"></script>
+
     <!-- bootstrap-daterangepicker -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="resources/js/moment.min.js"></script>
+  
 
     <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
-	
-	
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.js"></script>
-<script src="jquery-ui.min.js"></script>
+    <script src="resources/js/custom.min.js"></script>
+
 <script type="text/javascript">
   /*$('#tokenfield').tokenfield({
   autocomplete: {
