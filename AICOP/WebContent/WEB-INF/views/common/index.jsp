@@ -7,18 +7,110 @@
 <script src="resources/js/jquery.min.js"></script>
         <script src="resources/js/flowchart.js"></script>
          <script>
-		 function changeTheme(theme)
+        function fixAutoOpen(){ 
+         
+   document.getElementById("sidemenu").innerHTML='<li id="home"  ><a ><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a><ul class="nav child_menu"><li><a href="">Business View</a></li><li><a href="">Executive View</a></li></ul></li><li><a id="Bussiness_Process"><i class="fa fa-sitemap"></i> Bussiness Process <span class="fa fa-chevron-down"></span></a><ul class="nav child_menu"><li><a href="#level1_1">Mobile Services</a></li<li><a>Port In<span class="fa fa-chevron-down"></span></a><ul class="nav child_menu"><li class="sub_menu"><a href="">Bussiness Process Flow</a></li><li><a href="#level2_1">Application Flow</a></li></ul></li><li><a>Port Out<span class="fa fa-chevron-down"></span></a><ul class="nav child_menu"><li class="sub_menu"><a href="">Bussiness Process Flow</a> </li><li><a href="#level2_1">Application Flow</a> </li></ul></li><li><a>Fixed Services<span class="fa fa-chevron-down"></span></a><ul class="nav child_menu"><li class="sub_menu"><a href="">Port In</a></li><li><a href="#level2_1">Port Out</a></li></ul></li><li><a>Order Management<span class="fa fa-chevron-down"></span></a><ul class="nav child_menu"><li class="sub_menu"><a href="">Mobile Services</a>  </li> <li><a href="#level2_1">Fixed Services</a>  </li></ul></li><li><a>Billing Management<span class="fa fa-chevron-down"></span></a><ul class="nav child_menu"><li class="sub_menu"><a href="">Mobile Services</a>  </li><li><a href="#level2_1">Fixed Services</a>  </li> </ul></li></ul></li>';
+        }
+      function hideImage()
+      {
+    	var html=document.getElementById('navtitle').innerHTML;
+    	 if(html.includes("logoHead")){
+    	 
+    	  document.getElementById('navtitle').innerHTML="";
+    	  document.getElementById('navtitle').innerHTML='<img  id="logo" src="resources/images/aicop_logo.png" style="width:200px;"></img>';
+    	 }
+    	 else
+    		 {
+    		 document.getElementById('navtitle').innerHTML="";
+    		 document.getElementById('navtitle').innerHTML='<img  id="logoHead" src="resources/images/aicop_logo_head.png" "></img>';
+    		 }
+      }
+ function loadFlowChart()
+		 {
+		 var div=document.getElementById("x_content2");
+		  var div=document.getElementById("x_content2");
+		$("#basic-example").remove();
+		$("#createflowchart").remove();
+	//	alert(div.innerHTML);
+		div.innerHTML=div.innerHTML+'<div id="canvas" style="width: 100%;height:200px;overflow-x:scroll;overflow-y:scroll;"></div>'+'<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal" id="createflowchart">Create Flow Chart</button>';
+		alert(div.innerHTML);
+	var btn = document.getElementById("run"),
+                    cd = document.getElementById("code"),
+                    chart;
+          
+                    var code = cd.value;
+                    if (chart) {
+                      chart.clean();
+                    }
+                    chart = flowchart.parse(code);
+                    chart.drawSVG('canvas', {
+                      // 'x': 30,
+                      // 'y': 50,
+                      'line-width': 3,
+                      'maxWidth': 3,//ensures the flowcharts fits within a certian width
+                      'line-length': 10,
+                      'text-margin': 5,
+                      'font-size': 8,
+                      'font': 'normal',
+                      'font-family': 'Helvetica',
+                      'font-weight': 'normal',
+                      'font-color': 'black',
+                      'line-color': 'black',
+                      'element-color': 'black',
+                      'fill': 'white',
+                      'yes-text': 'yes',
+                      'no-text': 'no',
+                      'arrow-end': 'block',
+                      'scale': 1.5,
+                      'symbols': {
+                        'start': {
+                          'font-color': 'red',
+                          'element-color': 'green',
+                          'fill': 'black'
+                        },
+                        'end':{
+                          'class': 'end-element'
+                        }
+                      },
+                      'flowstate' : {
+                        'orderCapture' : { 'fill' : 'green', 'font-size' : 12},
+                        'current' : {'fill' : 'black', 'font-color' : 'red', 'font-weight' : 'bold'},
+                        'future' : { 'fill' : 'green'},
+                        'request' : { 'fill' : 'blue'},
+                        'invalid': {'fill' : 'green'},
+                        'approved' : { 'fill' : 'green', 'font-size' : 12, 'yes-text' : 'APPROVED', 'no-text' : 'n/a' },
+                        'rejected' : { 'fill' : 'green', 'font-size' : 12, 'yes-text' : 'n/a', 'no-text' : 'REJECTED' }
+                      }
+                    });
+                    $('[id^=sub1]').click(function(){
+                      alert('info here');
+                    });
+		 
+		 }
+      
+      
+      
+      
+      
+      
+      		 function changeTheme(theme)
 		 {
 		 if(theme=='gray'){
 		 document.getElementById("navtitle").style.backgroundColor='dimgrey';
 		 document.getElementById("navbar").style.backgroundColor='dimgrey';
 		  document.getElementById("left-col").style.backgroundColor='dimgrey';
+		  document.getElementById("nav-menu").style.backgroundColor='dimgrey';
+		//  document.getElementById("menu1").style.backgroundColor='dimgrey';
+			 document.getElementById("menu2").style.backgroundColor='dimgrey';
 		 }
 		else if(theme=='black')
 {
  document.getElementById("navtitle").style.backgroundColor='black';
 		 document.getElementById("navbar").style.backgroundColor='black';
 		 document.getElementById("left-col").style.backgroundColor='black';
+		 document.getElementById("nav-menu").style.backgroundColor='black';
+		 //document.getElementById("menu1").style.backgroundColor='black';
+		 document.getElementById("menu2").style.backgroundColor='black';
 
 
 }
@@ -27,6 +119,10 @@ else
 document.getElementById("navtitle").style.backgroundColor='#2A3F54';
 		 document.getElementById("navbar").style.backgroundColor='#2A3F54';
 		 document.getElementById("left-col").style.backgroundColor='#2A3F54';
+		 document.getElementById("nav-menu").style.backgroundColor='#2A3F54';
+		 //document.getElementById("menu1").style.backgroundColor='#2A3F54';
+		 document.getElementById("menu2").style.backgroundColor='#2A3F54';
+		 
 }		
 		 }
 		 function generateFlowChart()
@@ -94,60 +190,7 @@ var codefinal=code+"\n"+code1;
 
 		 
 		 }
-            window.onload = function () {
-                var btn = document.getElementById("run"),
-                    cd = document.getElementById("code"),
-                    chart;
-          
-                    var code = cd.value;
-                    if (chart) {
-                      chart.clean();
-                    }
-                    chart = flowchart.parse(code);
-                    chart.drawSVG('canvas', {
-                      // 'x': 30,
-                      // 'y': 50,
-                      'line-width': 3,
-                      'maxWidth': 3,//ensures the flowcharts fits within a certian width
-                      'line-length': 10,
-                      'text-margin': 5,
-                      'font-size': 8,
-                      'font': 'normal',
-                      'font-family': 'Helvetica',
-                      'font-weight': 'normal',
-                      'font-color': 'black',
-                      'line-color': 'black',
-                      'element-color': 'black',
-                      'fill': 'white',
-                      'yes-text': 'yes',
-                      'no-text': 'no',
-                      'arrow-end': 'block',
-                      'scale': 1.5,
-                      'symbols': {
-                        'start': {
-                          'font-color': 'red',
-                          'element-color': 'green',
-                          'fill': 'black'
-                        },
-                        'end':{
-                          'class': 'end-element'
-                        }
-                      },
-                      'flowstate' : {
-                        'orderCapture' : { 'fill' : 'green', 'font-size' : 12},
-                        'current' : {'fill' : 'black', 'font-color' : 'red', 'font-weight' : 'bold'},
-                        'future' : { 'fill' : '#FFFF99'},
-                        'request' : { 'fill' : 'blue'},
-                        'invalid': {'fill' : '#444444'},
-                        'approved' : { 'fill' : '#58C4A3', 'font-size' : 12, 'yes-text' : 'APPROVED', 'no-text' : 'n/a' },
-                        'rejected' : { 'fill' : '#C45879', 'font-size' : 12, 'yes-text' : 'n/a', 'no-text' : 'REJECTED' }
-                      }
-                    });
-                    $('[id^=sub1]').click(function(){
-                     /*  alert('info here'); */
-                    });
-                
-            };
+           
         </script>
   <script>
   
@@ -286,67 +329,53 @@ tagInput.tagsinput({
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+<ul class="nav side-menu" id="sidemenu">
+ <li id="home"  ><a ><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="">Business View</a></li>
                       <li><a href="">Executive View</a></li>
                      
                     </ul>
                   </li>
-                                  <li><a><i class="fa fa-sitemap"></i> Bussiness Process <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="#level1_1">Mobile Services</a>
+  <li><a id="Bussiness_Process"><i class="fa fa-sitemap"></i> Bussiness Process <span class="fa fa-chevron-down"></span></a>
+     <ul class="nav child_menu">
+                        <li><a href="#level1_1">Mobile Services</a></li>
+                        
                         <li><a>Port In<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="">Bussiness Process Flow</a>
-                            </li>
-                            <li><a href="#level2_1">Application Flow</a>
-                            </li>
-                       
-                          </ul>
+                            <li class="sub_menu"><a href="">Bussiness Process Flow</a></li>
+                            <li><a href="#level2_1">Application Flow</a></li>
+                           </ul>
                         </li>
 						  <li><a>Port Out<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="">Bussiness Process Flow</a>
-                            </li>
-                            <li><a href="#level2_1">Application Flow</a>
-                            </li>
-                       
-                          </ul>
+                            <li class="sub_menu"><a href="">Bussiness Process Flow</a> </li>
+                            <li><a href="#level2_1">Application Flow</a> </li>
+                           </ul>
                         </li>
 						  <li><a>Fixed Services<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="">Port In</a>
-                            </li>
-                            <li><a href="#level2_1">Port Out</a>
-                            </li>
-                       
+                            <li class="sub_menu"><a href="">Port In</a></li>
+                            <li><a href="#level2_1">Port Out</a></li>
                           </ul>
                         </li>
 						  <li><a>Order Management<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="">Mobile Services</a>
-                            </li>
-                            <li><a href="#level2_1">Fixed Services</a>
-                            </li>
-                       
+                            <li class="sub_menu"><a href="">Mobile Services</a>  </li>
+                            <li><a href="#level2_1">Fixed Services</a>  </li>
                           </ul>
                         </li>
                        <li><a>Billing Management<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="">Mobile Services</a>
-                            </li>
-                            <li><a href="#level2_1">Fixed Services</a>
-                            </li>
-                       
+                            <li class="sub_menu"><a href="">Mobile Services</a>  </li>
+                            <li><a href="#level2_1">Fixed Services</a>  </li>
                           </ul>
                         </li>
-                        </li>
-                    </ul>
-                  </li>                  
-                 
-                </ul>
+                      
+     </ul>
+      </li>
+    
+                 </ul>
               </div>
 
             </div>
@@ -359,10 +388,11 @@ tagInput.tagsinput({
 
         <!-- top navigation -->
         <div class="top_nav">
-          <div class="nav_menu">
+          <div class="nav_menu" id="nav-menu">
+          <script> document.getElementById("nav-menu").style.backgroundColor='#2A3F54';</script>
             <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              <div class="nav toggle" >
+                <a id="menu_toggle" onclick="hideImage()"><i class="fa fa-bars" id="test" ></i></a>
               </div>
 
               <ul class="nav navbar-nav navbar-right">
@@ -371,17 +401,8 @@ tagInput.tagsinput({
                     <img src="resources/images/profile_pic.png" alt="">John Doe
                     <span class=" fa fa-angle-down"></span>
                   </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                  <ul class="dropdown-menu dropdown-usermenu pull-right" id="menu2">
                     <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                      
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
-					<li><a href="javascript:; onclick=changeTheme('gray')">Theme 1</a></li>
-					<li><a href="javascript:; onclick=changeTheme('black')">Theme 2</a></li>
-					<li><a href="javascript:; onclick=changeTheme('blue')">Theme 3</a></li>
                     <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
@@ -391,7 +412,7 @@ tagInput.tagsinput({
                   
                   </a>
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
+                    <li style="background-color:dimgrey;color:white;">
                       <a>
                          <span>
                           <span onclick="changeTheme('gray')"><center > Theme 1</center></span>
@@ -399,7 +420,7 @@ tagInput.tagsinput({
                         </span>
                       </a>
                     </li>
-                    <li>
+                    <li style="background-color:black;">
                       <a>
                      
                         <span>
@@ -409,7 +430,7 @@ tagInput.tagsinput({
                        
                       </a>
                     </li>
-                    <li>
+                    <li  style="background-color:#2A3F54";>
                       <a>
                           <span>
                           <span onclick="changeTheme('blue')"><center>Theme 3</center></span>
@@ -452,20 +473,12 @@ tagInput.tagsinput({
                     <li><a class="collapse-link11" onclick="replacesignal()"><i class="fa fa-signal"></i></a>
                      
                     </li>
-                    <li><a class="close-link1" onclick="replaceBeat()"><i class="fa fa-heartbeat"></i></a>
-                    </li>
                   </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content" id="x_content1">
 
-                      
-						<div id="wrapper" style="width:100%;height:60px;overflow-y:scroll;">         
-						
-						 <input type="text" class="form-control" id="tokenfield" />
-						
-</select>
-						</div>
+                      <marquee behavior="scroll" direction="up" style="height:100%;">Welcome to AICOP<br><br><br><br><br><br><br><br><br></marquee>
 						
 						
 						  
@@ -482,7 +495,7 @@ tagInput.tagsinput({
                   
                   <div class="clearfix"></div>
                 </div>
-                <div class="x_content">
+                <div class="x_content" id="x_content2">
 				
     
 		 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>-->
@@ -509,10 +522,20 @@ orderCapture@>orderValidation({"stroke":"green"})@>orderSubmission({"stroke":"gr
 
 </textarea></div>
         <div><button id="run" type="button" style="width: 100%;display:none;">Run</button></div>
-        <div id="canvas" style="width: 100%;height:200px;overflow-x:scroll;overflow-y:scroll;"></div>
+       <!-- <div id="canvas" style="width: 100%;height:200px;overflow-x:scroll;overflow-y:scroll;"></div>-->
 	 <div class="container">
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">Create Flow Chart</button>
+<link rel="stylesheet" href="resources/css/Treant.css">
+    <link rel="stylesheet" href="resources/css/basic-treechartdata.css" >
+	<div class="chart" id="basic-example" style="width:100%;height:200px;"></div>
+    <script src="resources/js/raphael-min.js"></script>
+    <script src="resources/js/Treant.js"></script>
+    
+    <script src="resources/js/basic-treechartdata.js"></script>
+    <script>
+        new Treant( chart_config );
+    </script>
+  <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal" id="createflowchart">Create Flow Chart</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -581,21 +604,7 @@ orderCapture@>orderValidation({"stroke":"green"})@>orderSubmission({"stroke":"gr
               <div class="x_panel tile fixed_height_320 overflow_hidden">
                 <div class="x_title">
                   <h2>Device Usage</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
+  
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -661,21 +670,7 @@ orderCapture@>orderValidation({"stroke":"green"})@>orderSubmission({"stroke":"gr
               <div class="x_panel tile fixed_height_320 overflow_hidden">
                 <div class="x_title">
                   <h2>Device Usage</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
+                 
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
