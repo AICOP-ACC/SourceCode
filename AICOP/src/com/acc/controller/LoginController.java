@@ -23,6 +23,7 @@ public class LoginController {
 		
 public void setLoginDelegate(LoginDelegate loginDelegate) {
 		this.loginDelegate = loginDelegate;
+		//test
 	}
 
 @RequestMapping( value = "/authenticate.do",method=RequestMethod.POST)
